@@ -1,6 +1,6 @@
 {
     "name": "iter8/Adldap2ServiceProvider",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "type": "library",
     "config": {
         "preferred-install": "dist"
