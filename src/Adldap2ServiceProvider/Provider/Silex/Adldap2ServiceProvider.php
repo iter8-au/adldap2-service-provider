@@ -21,7 +21,7 @@ class Adldap2ServiceProvider implements ServiceProviderInterface
      */
     public function register(Application $app)
     {
-        $app->share(function ($app) {
+        $app['adldap'] = $app->share(function ($app) {
             try {
                 $adldap = new Adldap([
                     'base_dn'            => $app['adldap.options']['baseDn'],
