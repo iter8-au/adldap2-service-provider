@@ -46,10 +46,6 @@ class Adldap2ServiceProvider implements ServiceProviderInterface
     /**
      * Bootstraps the application.
      *
-     * This method is called after all services are registered
-     * and should be used for "dynamic" configuration (whenever
-     * a service must be requested).
-     *
      * @param \Silex\Application $app
      */
     public function boot(Application $app)
