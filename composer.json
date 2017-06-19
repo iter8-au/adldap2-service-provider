@@ -3,7 +3,10 @@
     "version": "1.0.1",
     "type": "library",
     "config": {
-        "preferred-install": "dist"
+        "preferred-install": {
+            "roave/security-advisories": "auto",
+            "*": "dist"
+        }
     },
     "require": {
         "ext-ldap": "*",
