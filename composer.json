@@ -5,8 +5,7 @@
     "require": {
         "ext-ldap": "*",
         "php": ">=5.4.26",
-        "adldap2/adldap2": "~5.0",
-        "roave/security-advisories": "dev-master"
+        "adldap2/adldap2": "~5.0"
     },
     "require-dev": {
         "silex/silex": "~1.3"
