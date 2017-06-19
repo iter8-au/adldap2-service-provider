@@ -2,12 +2,6 @@
     "name": "iter8/Adldap2ServiceProvider",
     "version": "1.0.2",
     "type": "library",
-    "config": {
-        "preferred-install": {
-            "roave/security-advisories": "auto",
-            "*": "dist"
-        }
-    },
     "require": {
         "ext-ldap": "*",
         "php": ">=5.4.26",
