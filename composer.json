@@ -2,6 +2,9 @@
     "name": "iter8/Adldap2ServiceProvider",
     "version": "1.0.0",
     "type": "library",
+    "config": {
+        "preferred-install": "dist",
+    },
     "require": {
         "ext-ldap": "*",
         "php": ">=5.4.26",
