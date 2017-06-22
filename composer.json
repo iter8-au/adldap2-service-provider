@@ -1,5 +1,5 @@
 {
-    "name": "iter8/adldap2serviceprovider",
+    "name": "iter8/adldap2-service-provider",
     "description": "Service Provider for the adLDAP PHP library.",
     "version": "1.0.4",
     "license": "proprietary",
