@@ -1,7 +1,7 @@
 {
     "name": "iter8/adldap2-service-provider",
     "description": "Service Provider for the adLDAP PHP library.",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "license": "proprietary",
     "type": "library",
     "require": {
