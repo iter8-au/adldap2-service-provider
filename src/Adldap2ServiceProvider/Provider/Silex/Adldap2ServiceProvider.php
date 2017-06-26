@@ -4,9 +4,7 @@ namespace Adldap2ServiceProvider\Provider\Silex;
 
 use Adldap\Adldap;
 use Silex\Application;
-use InvalidArgumentException;
 use Silex\ServiceProviderInterface;
-use Adldap\Exceptions\AdldapException;
 
 /**
  * Class Adldap2ServiceProvider
@@ -21,7 +19,10 @@ class Adldap2ServiceProvider implements ServiceProviderInterface
     /**
      * Registers services on the given app.
      *
-     * @param \Silex\Application $app
+     * @param  \Silex\Application $app
+     *
+     * @throws \InvalidArgumentException
+     * @throws \Adldap\Exceptions\AdldapException
      */
     public function register(Application $app)
     {
