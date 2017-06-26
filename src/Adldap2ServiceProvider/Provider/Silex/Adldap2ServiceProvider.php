@@ -10,6 +10,10 @@ use Adldap\Exceptions\AdldapException;
 
 /**
  * Class Adldap2ServiceProvider
+ *
+ * The full set of Adldap2 settings are available here:
+ * https://github.com/Adldap2/Adldap2/blob/master/docs/configuration.md
+ *
  * @package Adldap2ServiceProvider\Provider\Silex
  */
 class Adldap2ServiceProvider implements ServiceProviderInterface
@@ -29,17 +33,8 @@ class Adldap2ServiceProvider implements ServiceProviderInterface
             ];
 
             $config = array_merge($defaults, $app['adldap.options']);
-
-            try {
-                $adldap = new Adldap($config);
-            } catch (AdldapException $e) {
-                $adldap = null;
-            } catch (InvalidArgumentException $e) {
-                // Should never be thrown given we're supplying the configuration to adldap.
-                $adldap = null;
-            }
-
-            return $adldap;
+			
+            return new Adldap($config);
         });
     }
 
