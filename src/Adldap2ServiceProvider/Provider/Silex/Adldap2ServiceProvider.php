@@ -22,16 +22,16 @@ class Adldap2ServiceProvider implements ServiceProviderInterface
     public function register(Application $app)
     {
         $app['adldap'] = $app->share(function () use ($app) {
+            $defaults = [
+                'port'             => 389,
+                'use_ssl'          => true,
+                'follow_referrals' => true,
+            ];
+
+            $config = array_merge($defaults, $app['adldap.options']);
+
             try {
-                $adldap = new Adldap([
-                    'base_dn'            => $app['adldap.options']['baseDn'],
-                    'domain_controllers' => $app['adldap.options']['servers'],
-                    'use_ssl'            => $app['adldap.options']['ssl'],
-                    'ad_port'            => $app['adldap.options']['port'],
-                    'admin_username'     => $app['adldap.options']['adminUser'],
-                    'admin_password'     => $app['adldap.options']['adminPass'],
-                    'account_suffix'     => $app['adldap.options']['accountSuffix'],
-                ]);
+                $adldap = new Adldap($config);
             } catch (AdldapException $e) {
                 $adldap = null;
             } catch (InvalidArgumentException $e) {
