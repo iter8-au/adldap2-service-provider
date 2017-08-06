@@ -30,12 +30,17 @@ class Adldap2ServiceProvider implements ServiceProviderInterface
             $defaults = [
                 'port'             => 389,
                 'use_ssl'          => true,
-                'follow_referrals' => true,
+                'follow_referrals' => false,
             ];
 
+            // Default to not auto-connecting, e.g. the connection will be made
+            // when the first LDAP command is attempted.
+            // https://github.com/Adldap2/Adldap2/blob/v5.2/docs/GETTING-STARTED.md
+            $autoConnect = isset($app['adldap.auto_connect']) ? (boolean) $app['adldap.auto_connect'] : false;
+
             $config = array_merge($defaults, $app['adldap.options']);
-			
-            return new Adldap($config);
+
+            return new Adldap($config, null, $autoConnect);
         });
     }
 
