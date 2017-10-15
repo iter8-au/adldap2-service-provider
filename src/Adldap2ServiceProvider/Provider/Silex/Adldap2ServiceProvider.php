@@ -3,8 +3,8 @@
 namespace Adldap2ServiceProvider\Provider\Silex;
 
 use Adldap\Adldap;
-use Silex\Application;
-use Silex\ServiceProviderInterface;
+use Pimple\Container;
+use Pimple\ServiceProviderInterface;
 
 /**
  * Class Adldap2ServiceProvider
@@ -19,14 +19,14 @@ class Adldap2ServiceProvider implements ServiceProviderInterface
     /**
      * Registers services on the given app.
      *
-     * @param  \Silex\Application $app
+     * @param  Container $app
      *
      * @throws \InvalidArgumentException
      * @throws \Adldap\Exceptions\AdldapException
      */
-    public function register(Application $app)
+    public function register(Container $app)
     {
-        $app['adldap'] = $app->share(function () use ($app) {
+        $app['adldap'] = function () use ($app) {
             $defaults = [
                 'port'             => 389,
                 'use_ssl'          => true,
@@ -41,16 +41,7 @@ class Adldap2ServiceProvider implements ServiceProviderInterface
             $config = array_merge($defaults, $app['adldap.options']);
 
             return new Adldap($config, null, $autoConnect);
-        });
+        };
     }
 
-    /**
-     * Bootstraps the application.
-     *
-     * @param \Silex\Application $app
-     */
-    public function boot(Application $app)
-    {
-        //
-    }
 }
