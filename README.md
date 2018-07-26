@@ -2,19 +2,8 @@
 
 ## Installation
 
-Add the following hash to the `repositories` entry in your composer.json file.
-
-```json
-{
-  "type": "vcs",
-  "url": "https://github.com/iter8-au/adldap2-service-provider.git"
-}
-```
-
-Then you can do:
-
 ```bash
-composer require iter8/adldap2-service-provider:~2.0
+composer require iter8/adldap2-service-provider:~3.0
 ```
 
 ## Defaults
@@ -25,8 +14,8 @@ By default, the *$app['adldap.options']* array is initialiased with:
 
 ```php
 $defaults = [
-    'port'             => 389,
-    'use_ssl'          => true,
+    'port' => 389,
+    'use_ssl' => true,
     'follow_referrals' => false,
 ];
 ```

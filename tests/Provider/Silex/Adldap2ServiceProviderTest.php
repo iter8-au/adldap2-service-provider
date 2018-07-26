@@ -9,11 +9,8 @@ use Silex\Application;
 /**
  * Class Adldap2ServiceProviderTest
  */
-class Adldap2ServiceProviderTest extends \PHPUnit_Framework_TestCase
+class Adldap2ServiceProviderTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @throws \PHPUnit_Framework_Exception
-     */
     public function testExceptionThrownWhenMissingRequiredConfiguration()
     {
         $app = new Application();
@@ -27,9 +24,6 @@ class Adldap2ServiceProviderTest extends \PHPUnit_Framework_TestCase
         $app['adldap'];
     }
 
-    /**
-     * @throws \PHPUnit_Framework_Exception
-     */
     public function testConstruct()
     {
         $app = new Application();
@@ -44,15 +38,5 @@ class Adldap2ServiceProviderTest extends \PHPUnit_Framework_TestCase
         );
 
         $this->assertInstanceOf(Adldap::class, $app['adldap']);
-    }
-
-    /**
-     * @param  mixed $class
-     *
-     * @return \Mockery\MockInterface
-     */
-    public function mock($class)
-    {
-        return \Mockery::mock($class);
     }
 }
