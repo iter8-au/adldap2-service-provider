@@ -14,7 +14,7 @@ Add the following hash to the `repositories` entry in your composer.json file.
 Then you can do:
 
 ```bash
-composer require iter8/adldap2-service-provider:~1.0
+composer require iter8/adldap2-service-provider:~2.0
 ```
 
 ## Defaults
