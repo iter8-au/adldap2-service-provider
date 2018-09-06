@@ -31,6 +31,10 @@ class Adldap2ServiceProvider implements ServiceProviderInterface
             'use_ssl' => true,
             'follow_referrals' => false,
         ];
+        
+        if (!extension_loaded('ldap')) {
+            throw new \RuntimeException('LDAP extension not loaded.');
+        }
 
         $app['adldap'] = function ($app) {
             if (!isset($app['adldap.options']) || empty($app['adldap.options'])) {
